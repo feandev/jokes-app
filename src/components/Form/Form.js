@@ -1,4 +1,6 @@
 import React from "react";
+import Button from "./Button/Button";
+
 
 const Form = ({ submitFunction }) => (
 
@@ -17,7 +19,7 @@ const Form = ({ submitFunction }) => (
         name="content">
 
       </input>
-      <button type="submit"></button>
+      <Button />
     </form>
   </>
 )
