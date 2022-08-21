@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
-import Form from './components/Form/Form';
-import List from './components/List/List';
+import AppContext from '../../context';
+import Form from '../../components/Form/Form'
+import List from '../../components/List/List'
 
 const jokes = [
 
@@ -25,13 +26,8 @@ class App extends React.Component {
     items: [...jokes]
   }
 
-  addJoke = (e) => {
+  addJoke = (e, newJoke) => {
     e.preventDefault();
-
-    const newJoke = {
-      name: e.target[0].value,
-      content: e.target[1].value
-    }
 
     this.setState(prevState => ({
       items: [...prevState.items, newJoke]
@@ -40,11 +36,16 @@ class App extends React.Component {
 
   render() {
 
+    const contextData = {
+      ...this.state,
+      addJoke: this.addJoke
+  }
+
     return (
-      <>
+      <AppContext.Provider value={contextData}>
         <List items = {this.state.items}/>
-        <Form submitFunction ={this.addJoke}/>
-      </>
+        <Form />
+        </AppContext.Provider>
     )
   }
 }
