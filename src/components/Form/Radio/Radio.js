@@ -1,14 +1,16 @@
 import React from "react";
 import styles from "./Radio.module.scss"
 
-const Radio = ({ lang }) => (
+const Radio = ({ label, changeLangFunc, checked }) => (
   <div>
     <input
+      checked={checked}
       type='radio'
+      onChange={changeLangFunc}
     >
 
     </input>
-    <label>add {lang} joke</label>
+    <label>{label}</label>
   </div>
 
 )

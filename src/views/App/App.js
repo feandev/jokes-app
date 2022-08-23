@@ -1,10 +1,14 @@
 import React from 'react';
 import './App.css';
 import AppContext from '../../context';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Form from '../../components/Form/Form'
-import List from '../../components/List/List'
+import EnglishJokes from '../EnglishJokes.js/EnglishJokes';
+import PolishJokes from '../PolishJokes/PolishJokes';
+import AllJokes from '../AllJokes.js/AllJokes';
+import Navigation from '../../components/Navigation/Navigation';
 
-const jokes = [
+const polishJokes = [
 
   {
     name: 'Lekcja',
@@ -14,23 +18,31 @@ const jokes = [
     name: 'Dziecko',
     content: 'Javoviec jakimś cudem spłodził dziecko. Miał wymyślić imię dla dziecka. Na wszelki wypadek przygotował 2, jakby urodziły się bliźniaki. Na nieszczęście urodziły się trojaczki i dostały imiona: Jaś, Staś, ArrayIndexOutOfBoundsException'
   },
+
+]
+
+const englishJokes = [
   {
     name: 'Reality show',
     content: 'Why was the JavaScript reality show cancelled after only one episode? People thought it seemed scripted'
   },
 ]
 
+
 class App extends React.Component {
 
   state = {
-    items: [...jokes]
+    polish: [...polishJokes],
+    english: [...englishJokes],
+    all: [...polishJokes, ...englishJokes]
   }
 
   addJoke = (e, newJoke) => {
     e.preventDefault();
-
+    // english: state[english]
     this.setState(prevState => ({
-      items: [...prevState.items, newJoke]
+      [newJoke.lang]: [...prevState[newJoke.lang], newJoke],
+      all: [...this.state.all, newJoke]
     }))
   }
 
@@ -39,13 +51,21 @@ class App extends React.Component {
     const contextData = {
       ...this.state,
       addJoke: this.addJoke
-  }
+    }
 
     return (
-      <AppContext.Provider value={contextData}>
-        <List items = {this.state.items}/>
-        <Form />
+      <BrowserRouter>
+        <AppContext.Provider value={contextData}>
+          <Navigation />
+          <Routes>
+            <Route path='/' element={<AllJokes />} />
+            <Route path='/polish' element={<PolishJokes />} />
+            <Route path='/english' element={<EnglishJokes />} />
+          </Routes>
+          <Form />
         </AppContext.Provider>
+      </BrowserRouter>
+
     )
   }
 }
