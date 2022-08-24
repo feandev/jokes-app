@@ -2,16 +2,16 @@ import React from "react";
 import AppContext from "../../context";
 import List from "../../components/List/List";
 
-const AllJokes = () => (
+const AllJokesView = () => (
 
   <AppContext.Consumer>
 
     {(context) => (
-      <List items={context.all}/>
+      <List items={context.items}/>
     )}
   </AppContext.Consumer>
 
   
 )
 
-export default AllJokes;
+export default AllJokesView;

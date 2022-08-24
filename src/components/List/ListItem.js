@@ -1,15 +1,21 @@
 import React from "react";
 
+const ListItem = ({ content, type }) => {
 
-const ListItem = ({name, content, lang}) => (
+  return (
 
-  <>
     <li>
-      <h2>{name}</h2>
-      <p>{content}</p>
-      <p>{lang}</p>
-      </li>
-  </>
-)
+      {
+        type === 'text' ? (
+
+          <p>{content}</p>
+        ) : (
+
+          <img alt="img" src={content}></img>
+        )
+      }
+    </li>
+  )
+}
 
 export default ListItem;

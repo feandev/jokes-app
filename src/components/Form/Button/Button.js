@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./Button.module.scss"
 
-const Button = () => (
+const Button = ({description}) => (
 
   <button className={styles.button}>
-    Add new joke
+    {description}
   </button>
 )
 

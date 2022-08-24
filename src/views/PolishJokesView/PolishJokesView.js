@@ -2,16 +2,16 @@ import React from "react";
 import AppContext from "../../context";
 import List from "../../components/List/List";
 
-const PolishJokes = () => (
+const PolishJokesView = () => (
 
   <AppContext.Consumer>
 
     {(context) => (
-      <List items={context.polish}/>
+      <List items={context.items.filter(joke => { return joke.lang === 'polish'})}/>
     )}
   </AppContext.Consumer>
 
   
 )
 
-export default PolishJokes;
+export default PolishJokesView;

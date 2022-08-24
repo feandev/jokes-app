@@ -4,38 +4,42 @@ import Button from "./Button/Button";
 import Input from "./Input/Input";
 import Radio from "./Radio/Radio";
 
-const langs = {
+const jokeLanguage = {
   english: 'english',
   polish: 'polish'
 }
 
-const radioBtnlabels = {
-  english: 'ENG',
-  polish: 'PL',
+const jokeType = {
+  image: 'image',
+  text: 'text'
 }
 
 class Form extends React.Component {
 
   state = {
-    name: '',
+    type: '',
     content: '',
-    lang: langs.polish,
+    lang: jokeLanguage.polish,
   }
 
-  handleLanguageSelect = (lang) => {
+  handleJokeLangaugeSelect = (lang) => {
     this.setState({
       lang: lang,
     })
-
-
   }
 
+  handleJokeTypeSelect = (type) => {
+    this.setState({
+      type: type
+    })
+  }
 
-  // handleInputNameChange = e => this.setState({name: e.target.value})
-  // handleInputContentChange = e => this.setState({content: e.target.value})
   handleInputChange = e => this.setState({ [e.target.name]: e.target.value })
 
   render() {
+
+    const lang = this.state.lang;
+    const type = this.state.type;
 
     return (
 
@@ -47,28 +51,33 @@ class Form extends React.Component {
               onSubmit={(e) => context.addJoke(e, this.state)}
               autoComplete='off'
             >
+              <p>Select joke language</p>
               <Radio
-                label={radioBtnlabels.polish}
-                checked = {this.state.lang === langs.polish}
-                changeLangFunc={() => this.handleLanguageSelect(langs.polish)} />
+                label = 'PL'
+                checked = {lang === jokeLanguage.polish}
+                changeLangFunc={() => this.handleJokeLangaugeSelect(jokeLanguage.polish)} />
               <Radio
-                label={radioBtnlabels.english}
-                checked = {this.state.lang === langs.english}
-                changeLangFunc={() => this.handleLanguageSelect(langs.english)} />
+                label = 'ENG'
+                checked = {lang === jokeLanguage.english}
+                changeLangFunc={() => this.handleJokeLangaugeSelect(jokeLanguage.english)} />
 
+              <p>Select joke type</p>
+              <Radio
+                label = 'Text'
+                checked = {type === jokeType.text}
+                changeLangFunc={() => this.handleJokeTypeSelect(jokeType.text)} />
+              <Radio
+                label = 'Mem'
+                checked = {type === jokeType.image}
+                changeLangFunc={() => this.handleJokeTypeSelect(jokeType.image)} />  
 
               <Input
-                HTMLTag='input'
-                onChange={this.handleInputChange}
-                name='name'
-                
-              />
-              <Input
-                HTMLTag='textarea'
+                HTMLTag={type === jokeType.text ? 'textarea' : 'input'}
+                placeholder={type === jokeType.text ? 'Enter text...' : 'Enter URL...'}
                 onChange={this.handleInputChange}
                 name='content'
                  />
-              <Button />
+              <Button description={lang === 'english' ? 'Add new joke ' : 'Dodaj nowy żart'}/>
             </form>
           </>
         )}

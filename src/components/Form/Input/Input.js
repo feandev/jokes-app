@@ -1,19 +1,15 @@
 import React from "react";
 import styles from "./Input.module.scss"
 
-const Input = ({HTMLTag: Tag, name, ...props}) => (
+const Input = ({HTMLTag: Tag, name, placeholder, ...props}) => (
 
-  <div>
     <Tag
     type='text'
     name={name}
+    placeholder={placeholder}
     required
     {...props}
     />
-    <label
-      htmlFor={name}>
-    </label>
-  </div>
 )
 
 export default Input;
