@@ -1,6 +1,6 @@
 import React from "react";
 import AppContext from "../../context";
-import Button from "./Button/Button";
+import Button from "../Button/Button";
 import Input from "./Input/Input";
 import Radio from "./Radio/Radio";
 
@@ -17,7 +17,7 @@ const jokeType = {
 class Form extends React.Component {
 
   state = {
-    type: '',
+    type: jokeType.text,
     content: '',
     lang: jokeLanguage.polish,
   }
@@ -53,31 +53,41 @@ class Form extends React.Component {
             >
               <p>Select joke language</p>
               <Radio
-                label = 'PL'
-                checked = {lang === jokeLanguage.polish}
+                label='PL'
+                checked={lang === jokeLanguage.polish}
                 changeLangFunc={() => this.handleJokeLangaugeSelect(jokeLanguage.polish)} />
               <Radio
-                label = 'ENG'
-                checked = {lang === jokeLanguage.english}
+                label='ENG'
+                checked={lang === jokeLanguage.english}
                 changeLangFunc={() => this.handleJokeLangaugeSelect(jokeLanguage.english)} />
 
               <p>Select joke type</p>
               <Radio
-                label = 'Text'
-                checked = {type === jokeType.text}
+                label='Text'
+                checked={type === jokeType.text}
                 changeLangFunc={() => this.handleJokeTypeSelect(jokeType.text)} />
               <Radio
-                label = 'Mem'
-                checked = {type === jokeType.image}
-                changeLangFunc={() => this.handleJokeTypeSelect(jokeType.image)} />  
+                label='Mem'
+                checked={type === jokeType.image}
+                changeLangFunc={() => this.handleJokeTypeSelect(jokeType.image)} />
 
-              <Input
-                HTMLTag={type === jokeType.text ? 'textarea' : 'input'}
-                placeholder={type === jokeType.text ? 'Enter text...' : 'Enter URL...'}
-                onChange={this.handleInputChange}
-                name='content'
-                 />
-              <Button description={lang === 'english' ? 'Add new joke ' : 'Dodaj nowy żart'}/>
+              {lang === jokeLanguage.english ?
+
+                <Input
+                  HTMLTag={type === jokeType.text ? 'textarea' : 'input'}
+                  placeholder={type === jokeType.text ? 'Enter joke text...' : 'Paste img URL...'}
+                  onChange={this.handleInputChange}
+                  name='content'
+                /> :
+                <Input
+                  HTMLTag={type === jokeType.text ? 'textarea' : 'input'}
+                  placeholder={type === jokeType.text ? 'Wpisz treść żartu...' : 'Wklej URL obrazka...'}
+                  onChange={this.handleInputChange}
+                  name='content'
+                />
+              }
+
+              <Button description={lang === 'english' ? 'Add new joke ' : 'Dodaj nowy żart'} />
             </form>
           </>
         )}
@@ -87,5 +97,3 @@ class Form extends React.Component {
 }
 
 export default Form;
-
-// render different inputs for english and polish

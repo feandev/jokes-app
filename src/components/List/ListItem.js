@@ -1,20 +1,24 @@
-import React from "react";
+import { style } from '@mui/system';
+import React from 'react';
+import styles from './ListItem.module.scss';
 
 const ListItem = ({ content, type }) => {
 
   return (
+    <>
+      <li className={styles.item}>
+        {
+          type === 'text' ? (
 
-    <li>
-      {
-        type === 'text' ? (
+            <p className={styles.text}>"{content}"</p>
+          ) : (
 
-          <p>{content}</p>
-        ) : (
-
-          <img alt="img" src={content}></img>
-        )
-      }
-    </li>
+            <img src={content} className={styles.image} alt='img' ></img>
+          )
+        }
+      </li>
+      <div className={styles.divider}></div>
+    </>
   )
 }
 

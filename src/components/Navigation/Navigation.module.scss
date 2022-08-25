@@ -1,0 +1,47 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  max-width: 80%;
+  margin: 40px auto 0;
+  
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #61dafb;
+  font-family: 'Poppins';
+  
+
+  span {
+    display: block;
+    font-size: 1rem;
+    color: #fff;
+  }
+}
+
+
+.list {
+  list-style: none;
+  margin: 0 auto;
+  display: flex;
+}
+
+.item {
+  margin-right: 40px;
+}
+
+.link {
+  font-family: 'Poppins';
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: lowercase;
+
+  &:hover {
+    color: #61dafb;
+
+  }
+
+}
+

@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+import styles from './App.module.scss'
 import AppContext from '../../context';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { jokes } from '../../data/data';
 import Navigation from '../../components/Navigation/Navigation';
-import Form from '../../components/Form/Form'
+import FormBox from '../..//components/FormBox/FormBox'
 import EnglishJokesView from '../EnglishJokesView/EnglishJokesView';
 import PolishJokesView from '../PolishJokesView/PolishJokesView';
 import TextJokesView from '../TextJokesView/TextJokesView';
@@ -14,13 +14,20 @@ import AllJokesView from '../AllJokesView/AllJokesView';
 class App extends React.Component {
 
   state = {
-    items: [...jokes]
+    items: [...jokes],
+    formOpen: false
   }
 
   addJoke = (e, newJoke) => {
     e.preventDefault();
-    this.setState(prevState => ({items: [...prevState.items, newJoke],}))
+    this.setState(prevState => ({ items: [...prevState.items, newJoke], }))
+
+    this.closeForm();
   }
+
+  openForm = () => {this.setState({formOpen: true})}
+
+  closeForm = () => {this.setState({formOpen: false})}
 
   render() {
 
@@ -32,15 +39,15 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <AppContext.Provider value={contextData}>
-          <Navigation />
+        <Navigation openFormFunc={this.openForm}  />
           <Routes>
-            <Route path='/' element={<AllJokesView />} />
-            <Route path='/polish' element={<PolishJokesView />} />
-            <Route path='/english' element={<EnglishJokesView />} />
-            <Route path='/images' element={<ImageJokesView />} />
-            <Route path='/text' element={<TextJokesView />} />
-          </Routes>
-          <Form />
+              <Route path='/' element={<AllJokesView />} />
+              <Route path='/polish' element={<PolishJokesView />} />
+              <Route path='/english' element={<EnglishJokesView />} />
+              <Route path='/images' element={<ImageJokesView />} />
+              <Route path='/text' element={<TextJokesView />} />
+            </Routes>
+            {this.state.formOpen && <FormBox closeFormFunc={this.closeForm} />}
         </AppContext.Provider>
       </BrowserRouter>
     )
