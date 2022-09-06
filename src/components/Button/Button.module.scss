@@ -1,11 +1,24 @@
 .button {
-  padding: 20px;
-  background-color: #fac863;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #282c34;
-  font-family: 'Poppins';
+  display: block;
+  margin: 0 auto;
+  padding: 10px 40px;
+  background-color: #61dafb;
+  font-size: 1.4rem;
+  color: #fff;
   text-transform: lowercase;
+  border: none;
   border-radius: 10px;
   cursor: pointer;
+  transition: all 0.5s;
+
+  &:hover {
+    background-color: darken($color: #61dafb, $amount: 50);
+  }
+}
+
+.buttonNav {
+  @extend .button;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 10px 20px;
 }

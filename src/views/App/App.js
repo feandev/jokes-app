@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './App.module.scss'
+import '../../index.css';
 import AppContext from '../../context';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { jokes } from '../../data/data';
 import Navigation from '../../components/Navigation/Navigation';
-import FormBox from '../..//components/FormBox/FormBox'
+import FormBox from '../../components/FormBox/FormBox'
 import EnglishJokesView from '../EnglishJokesView/EnglishJokesView';
 import PolishJokesView from '../PolishJokesView/PolishJokesView';
 import TextJokesView from '../TextJokesView/TextJokesView';
@@ -21,35 +21,36 @@ class App extends React.Component {
   addJoke = (e, newJoke) => {
     e.preventDefault();
     this.setState(prevState => ({ items: [...prevState.items, newJoke], }))
-
     this.closeForm();
   }
 
-  openForm = () => {this.setState({formOpen: true})}
+  openForm = () => { this.setState({ formOpen: true }) }
 
-  closeForm = () => {this.setState({formOpen: false})}
+  closeForm = () => { this.setState({ formOpen: false }) }
 
   render() {
 
     const contextData = {
       ...this.state,
-      addJoke: this.addJoke
+      addJoke: this.addJoke,
+      openForm: this.openForm,
+      closeForm: this.closeForm
     }
 
     return (
       <BrowserRouter>
-        <AppContext.Provider value={contextData}>
-        <Navigation openFormFunc={this.openForm}  />
-          <Routes>
-              <Route path='/' element={<AllJokesView />} />
-              <Route path='/polish' element={<PolishJokesView />} />
-              <Route path='/english' element={<EnglishJokesView />} />
-              <Route path='/images' element={<ImageJokesView />} />
-              <Route path='/text' element={<TextJokesView />} />
-            </Routes>
-            {this.state.formOpen && <FormBox closeFormFunc={this.closeForm} />}
-        </AppContext.Provider>
-      </BrowserRouter>
+      <AppContext.Provider value={contextData}>
+        <Navigation />
+        <Routes>
+          <Route path='/' element={<AllJokesView />} />
+          <Route path='/polish' element={<PolishJokesView />} />
+          <Route path='/english' element={<EnglishJokesView />} />
+          <Route path='/images' element={<ImageJokesView />} />
+          <Route path='/text' element={<TextJokesView />} />
+        </Routes>
+        {this.state.formOpen && <FormBox />}
+      </AppContext.Provider>
+    </BrowserRouter>
     )
   }
 }

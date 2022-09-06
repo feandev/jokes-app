@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./Button.module.scss"
 
-const Button = ({description, ...props}) => (
+const Button = ({description, type, ...props}) => (
 
-  <button className={styles.button} {...props}>
+  <button className={type === 'nav' ? styles.buttonNav : styles.button} {...props}>
     {description}
   </button>
 )

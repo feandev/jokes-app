@@ -1,29 +1,38 @@
 export const jokes = [
-
   {
     lang: 'polish',
     type: 'text',
-    content: 'Na lekcji programowania obiektowego student łapie koleżankę obok za pierś. Na to ona: "To prywatne!!!", a on odpowiada: "Myślałem że jesteśmy w tej samej klasie smile emoticon',
+    content: 'Jak śni programista? - Na JAVIE.',
   },
   {
-    lang: 'polish',
-    type: 'text',
-    content: 'Javoviec jakimś cudem spłodził dziecko. Miał wymyślić imię dla dziecka. Na wszelki wypadek przygotował 2, jakby urodziły się bliźniaki. Na nieszczęście urodziły się trojaczki i dostały imiona: Jaś, Staś, ArrayIndexOutOfBoundsException',
+    lang: 'english',
+    type: 'image',
+    content: 'https://i.pinimg.com/736x/2b/06/c2/2b06c201ef8e1393afae466ad51c26b9.jpg',
   },
   {
     lang: 'english',
     type: 'text',
     content: 'Why was the JavaScript reality show cancelled after only one episode? People thought it seemed scripted',
   },
-  {
-    lang: 'english',
-    type: 'image',
-    content: 'https://www.freelancinggig.com/blog/wp-content/uploads/2019/04/t2.jpg',
-  },
-  {
-    lang: 'english',
-    type: 'image',
-    content: 'https://i.pinimg.com/originals/f7/f9/de/f7f9de9e8391fd17e53e97fd1dc9ee3d.jpg',
-  },
 
+  {
+    lang: 'english',
+    type: 'image',
+    content: 'https://www.meme-arsenal.com/memes/aef578f116f3f246884ed3a77ca715d4.jpg',
+  },
+  {
+    lang: 'polish',
+    type: 'text',
+    content: 'int kobieta; //kobieta zmienną jest',
+  },
+  {
+    lang: 'english',
+    type: 'image',
+    content: 'https://833250.smushcdn.com/1694534/wp-content/uploads/2022/01/Screenshot-2022-01-11-at-12.50.30-761x1024.png?lossy=1&strip=1&webp=1',
+  },
+  {
+    lang: 'polish',
+    type: 'text',
+    content: 'Co mówi informatyk, gdy dostanie pendrive na urodziny? - Dzięki za pamięć.',
+  },
 ]

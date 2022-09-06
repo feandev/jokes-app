@@ -1,5 +1,13 @@
 .list {
-  max-width: 60%;
+  padding: 0 15px;
+  height: 100vh;
   margin: 0 auto;
   list-style: none;
+}
+
+@media (min-width: 1200px) {
+
+  .list {
+    max-width: 1140px;
+  }
 }

@@ -17,7 +17,6 @@ const ListItem = ({ content, type }) => {
           )
         }
       </li>
-      <div className={styles.divider}></div>
     </>
   )
 }

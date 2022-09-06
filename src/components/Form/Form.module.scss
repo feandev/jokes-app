@@ -1,0 +1,41 @@
+.form {
+  color: #282c34;
+  min-height: 350px;
+}
+
+.title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.txt {
+  font-size: 1.2rem;
+  flex-basis: 33%;
+}
+
+.row {
+  display: flex;
+  margin: 30px auto;
+}
+
+.exit {
+  position: relative;
+  cursor: pointer;
+  
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+    right: 0;
+    top: 0;
+    width: 25px;
+    height: 4px;
+    background-color: #282c34;
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}

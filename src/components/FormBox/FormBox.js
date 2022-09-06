@@ -4,10 +4,11 @@ import styles from "./FormBox.module.scss"
 
 const FormBox = () => (
 
-  <>
-  <Form />
-  </>
-
+  <div className={styles.background}>
+    <div className={styles.box}>
+      <Form />
+    </div>
+  </div>
 
 )
 
