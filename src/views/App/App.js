@@ -20,7 +20,7 @@ class App extends React.Component {
 
   addJoke = (e, newJoke) => {
     e.preventDefault();
-    this.setState(prevState => ({ items: [...prevState.items, newJoke], }))
+    this.setState(prevState => ({ items: [newJoke, ...prevState.items], }))
     this.closeForm();
   }
 

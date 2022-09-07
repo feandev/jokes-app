@@ -18,7 +18,14 @@
 
 .buttonNav {
   @extend .button;
-  font-size: 1.2rem;
-  margin: 0;
+  font-size: 1em;
+  margin: 20px 0;
   padding: 10px 20px;
+}
+
+@media (min-width: 768px) {
+
+  .buttonNav {
+    font-size: 1.2rem;
+  }
 }

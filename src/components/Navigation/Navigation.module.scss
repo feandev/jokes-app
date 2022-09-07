@@ -13,7 +13,6 @@
 }
 
 .wrapper {
-  margin-bottom: 100px;
   position: relative;
 }
 
@@ -26,14 +25,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 30px 15px 0;
+  padding: 0 15px;
 
   .navItem {
     text-align: center;
     width: 100%;
     padding: 10px;
     margin: 10px;
-    box-shadow: 0 0 5px 0 darken($color: #282c34, $amount: 10);
     border-radius: 10px;
     cursor: pointer;
   }
@@ -56,7 +54,7 @@
     border-top: 4px solid #fff;
     transform: rotate(-45deg);
     left: 0;
-    top: 10px;
+    top: 7px;
     transition: all 0.3s;
   }
 
@@ -64,24 +62,6 @@
     left: auto;
     right: 0;
     transform: rotate(135deg);
-  }
-
-  &:hover {
-    color: #61dafb;
-  }
-
-  &:hover::after,
-  &:hover::before {
-    border-left: 4px solid #61dafb;
-    border-top: 4px solid #61dafb;
-  }
-
-  &:hover::after {
-    right: 15px;
-  }
-
-  &:hover::before {
-    left: 15px;
   }
 }
 
@@ -117,5 +97,23 @@
   .navLink {
     font-size: 1.2rem;
     padding: 0 30px;
+
+    &:hover {
+      color: #61dafb;
+    }
+  
+    &:hover::after,
+    &:hover::before {
+      border-left: 4px solid #61dafb;
+      border-top: 4px solid #61dafb;
+    }
+  
+    &:hover::after {
+      right: 15px;
+    }
+  
+    &:hover::before {
+      left: 15px;
+    }
   }
 }
