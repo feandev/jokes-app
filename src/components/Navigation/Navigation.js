@@ -25,7 +25,7 @@ class Navigation extends React.Component {
         {(context) => (
           <>
             <h1 className={styles.title}>&lt;PJ/&gt; <span>programmers jokes</span></h1>
-            <nav className={styles.wrapper}>
+            <nav className={styles.wrapper} onScroll={() => console.log('scrolling')}>
               <BurgerMenu toggleFunc={this.toggleMobileMenu} active={menuOpen}  />
               <ul className={menuOpen ? styles.navMobile : styles.nav}>
                 <li className={styles.navItem} onClick={closeMobileMenu}>

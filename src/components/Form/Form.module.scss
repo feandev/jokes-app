@@ -1,15 +1,16 @@
 .form {
-  color: #282c34;
-  min-height: 350px;
+  background-color: #282c34;
 }
 
 .title {
+  color: #61dafb;
   font-size: 1.5rem;
   text-align: center;
   margin-bottom: 30px;
 }
 
 .txt {
+  color: #fff;
   flex-basis: 33%;
 }
 
@@ -21,16 +22,16 @@
 .exit {
   position: relative;
   cursor: pointer;
+  height: 25px;
   
   &::before,
   &::after {
     position: absolute;
     content: '';
     right: 0;
-    top: 0;
     width: 25px;
-    height: 4px;
-    background-color: #282c34;
+    height: 3px;
+    background-color: #fff;
     transform: rotate(45deg);
   }
 

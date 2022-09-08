@@ -10,6 +10,7 @@ import PolishJokesView from '../PolishJokesView/PolishJokesView';
 import TextJokesView from '../TextJokesView/TextJokesView';
 import ImageJokesView from '../ImageJokesView/ImageJokesView';
 import AllJokesView from '../AllJokesView/AllJokesView';
+import Footer from '../Footer/Footer';
 
 class App extends React.Component {
 
@@ -48,7 +49,9 @@ class App extends React.Component {
           <Route path='/images' element={<ImageJokesView />} />
           <Route path='/text' element={<TextJokesView />} />
         </Routes>
+        <Footer />
         {this.state.formOpen && <FormBox />}
+     
       </AppContext.Provider>
     </BrowserRouter>
     )
