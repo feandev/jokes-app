@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ListItem.module.scss';
 
-const ListItem = ({ content, type }) => {
+const ListItem = ({ content, type, source }) => {
 
   return (
     <>
@@ -15,6 +15,7 @@ const ListItem = ({ content, type }) => {
             <img src={content} className={styles.image} alt='img' ></img>
           )
         }
+        <p className={styles.source}>{source}</p>
       </li>
     </>
   )
