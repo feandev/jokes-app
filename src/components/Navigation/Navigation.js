@@ -11,9 +11,9 @@ class Navigation extends React.Component {
     menuOpen: false
   }
 
-  toggleMobileMenu = () => {this.state.menuOpen ? this.setState({menuOpen: false}) : this.setState({menuOpen: true})}
+  toggleMobileMenu = () => { this.state.menuOpen ? this.setState({ menuOpen: false }) : this.setState({ menuOpen: true }) }
 
-  closeMobileMenu = () => this.setState({menuOpen: false});
+  closeMobileMenu = () => this.setState({ menuOpen: false });
 
   render() {
 
@@ -26,7 +26,7 @@ class Navigation extends React.Component {
           <>
             <h1 className={styles.title}>&lt;PJ/&gt; <span>programmers jokes</span></h1>
             <nav className={styles.wrapper} onScroll={() => console.log('scrolling')}>
-              <BurgerMenu toggleFunc={this.toggleMobileMenu} active={menuOpen}  />
+              <BurgerMenu toggleFunc={this.toggleMobileMenu} active={menuOpen} />
               <ul className={menuOpen ? styles.navMobile : styles.nav}>
                 <li className={styles.navItem} onClick={closeMobileMenu}>
                   <NavLink className={styles.navLink} to="/" >All</NavLink>
@@ -40,10 +40,10 @@ class Navigation extends React.Component {
                 <li className={styles.navItem} onClick={closeMobileMenu}>
                   <NavLink className={styles.navLink} to="/text">Text</NavLink>
                 </li>
-                <li className={styles.navItem}onClick={closeMobileMenu}>
+                <li className={styles.navItem} onClick={closeMobileMenu}>
                   <NavLink className={styles.navLink} to="/images">Memes</NavLink>
                 </li>
-                <Button onClick={() => context.openForm()} description="+ Add your joke" type='nav' />
+                <Button openFormFunc={() => context.openForm()} description="+ Add your joke" type='nav' />
               </ul>
             </nav>
           </>

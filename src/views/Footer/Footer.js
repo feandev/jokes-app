@@ -8,7 +8,7 @@ const Footer = () => {
   return (
 
     <footer className={styles.wrapper}>
-      <a href="https://github.com/feandev" target="_blank" className={styles.github}>github</a>
+      <a href="https://github.com/feandev" target="_blank" rel="noreferrer" className={styles.github}>github</a>
       <button onClick={() => scrollUp()} className={styles.btn} id="scrollBtn"> &#9757;</button>
     </footer>
   )

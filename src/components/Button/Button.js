@@ -1,11 +1,24 @@
 import React from "react";
 import styles from "./Button.module.scss"
 
-const Button = ({description, type, ...props}) => (
+const Button = ({type,  formValid, openFormFunc, description, }) => {
 
-  <button className={type === 'nav' ? styles.buttonNav : styles.button} {...props}>
-    {description}
-  </button>
-)
+  return (
+    <>
+      {
+        type === 'nav' ? (
+
+          <button onClick={openFormFunc} className={styles.buttonNav} >
+            {description}
+          </button>
+        ) : (
+          <button disabled={!formValid} className={styles.button} >
+            {description}
+          </button>
+        )
+      }
+    </>
+  )
+}
 
 export default Button;
