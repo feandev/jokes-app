@@ -3,7 +3,6 @@ import styles from "./Radio.module.scss"
 
 const Radio = ({ label, changeLangFunc, checked }) => (
 
-
     <label className={styles.label}>
       {label}
       <input
@@ -15,8 +14,6 @@ const Radio = ({ label, changeLangFunc, checked }) => (
       </input>
       <span className={styles.checkbox}></span>
     </label>
-
-
 )
 
 export default Radio;

@@ -6,6 +6,7 @@
 .github {
   display: block;
   text-align: center;
+  transition: all 0.3s;
 
   &:hover {
     color: #61dafb;

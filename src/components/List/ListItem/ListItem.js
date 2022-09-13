@@ -15,7 +15,7 @@ const ListItem = ({ content, url, type, source }) => {
             <img src={url} className={styles.image} alt='img' ></img>
           )
         }
-        <p className={styles.source}>- {source}</p>
+        <p className={styles.source}>{source}</p>
       </li>
     </>
   )

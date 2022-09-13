@@ -9,7 +9,6 @@ const FormBox = () => (
       <Form />
     </div>
   </div>
-
 )
 
 export default FormBox;

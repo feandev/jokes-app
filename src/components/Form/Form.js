@@ -154,5 +154,3 @@ class Form extends React.Component {
 }
 
 export default Form;
-
-// when inputs are empty show alert
