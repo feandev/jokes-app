@@ -6,6 +6,10 @@
     padding: 0;
   }
 
+  html, body, #app {
+    height: 100%
+  }
+
   body {
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
@@ -13,8 +17,11 @@
     background: #282c34 url(./assets/bg.png) no-repeat top right;
     background-size: contain;
     background-attachment: fixed;
-    height: 100vh;
+    min-height: 100vh;
     text-rendering: optimizeLegibility;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   ul {
@@ -33,6 +40,9 @@
     }
   }
 
+  .wrapper {
+    height: 100%;
+  }
 
 
 

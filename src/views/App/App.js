@@ -49,9 +49,7 @@ class App extends React.Component {
           <Route path='/images' element={<ImageJokesView />} />
           <Route path='/text' element={<TextJokesView />} />
         </Routes>
-        <Footer />
         {this.state.formOpen && <FormBox />}
-     
       </AppContext.Provider>
     </BrowserRouter>
     )

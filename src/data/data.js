@@ -13,15 +13,13 @@ export const jokes = [
     url: '',
     source: 'https://javastart.pl/'
   },
-
   {
-    lang: 'english',
+    lang: 'polish',
     type: 'text',
-    content: 'Why was the JavaScript reality show cancelled after only one episode? People thought it seemed scripted',
+    content: 'Co mówi informatyk, gdy dostanie pendrive na urodziny? - Dzięki za pamięć.',
     url: '',
-    source: 'https://twitter.com/'
+    source: 'https://www.wykop.pl/'
   },
-
   {
     lang: 'english',
     type: 'image',
@@ -44,10 +42,10 @@ export const jokes = [
     source: 'https://memesfunny.art/'
   },
   {
-    lang: 'polish',
+    lang: 'english',
     type: 'text',
-    content: 'Co mówi informatyk, gdy dostanie pendrive na urodziny? - Dzięki za pamięć.',
+    content: 'Why was the JavaScript reality show cancelled after only one episode? People thought it seemed scripted',
     url: '',
-    source: 'https://www.wykop.pl/'
+    source: 'https://twitter.com/'
   },
 ]
