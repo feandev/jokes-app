@@ -1,11 +1,10 @@
 .wrapper {
   padding: 20px 0;
   background-color: #000;
+  text-align: center;
 }
 
 .github {
-  display: block;
-  text-align: center;
   transition: all 0.3s;
 
   &:hover {
