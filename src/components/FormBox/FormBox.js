@@ -1,14 +1,15 @@
-import React from "react";
-import Form from "../Form/Form";
-import styles from "./FormBox.module.scss"
+import React from 'react';
+import Form from '../Form/Form';
+import styles from './FormBox.module.scss';
 
-const FormBox = () => (
-
-  <div className={styles.background}>
-    <div className={styles.box}>
-      <Form />
+function FormBox() {
+  return (
+    <div className={styles.background}>
+      <div className={styles.box}>
+        <Form />
+      </div>
     </div>
-  </div>
-)
+  );
+}
 
 export default FormBox;

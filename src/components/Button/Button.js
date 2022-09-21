@@ -1,24 +1,24 @@
-import React from "react";
-import styles from "./Button.module.scss"
+import React from 'react';
+import styles from './Button.module.scss';
 
-const Button = ({type,  formValid, openFormFunc, description, }) => {
-
+function Button({
+  type, formValid, openFormFunc, description,
+}) {
   return (
-    <>
-      {
+    
         type === 'nav' ? (
 
-          <button onClick={openFormFunc} className={styles.buttonNav} >
+          <button onClick={openFormFunc} type="button" className={styles.buttonNav}>
             {description}
           </button>
         ) : (
-          <button disabled={!formValid} className={styles.button} >
+          <button disabled={!formValid} type="submit" className={styles.button}>
             {description}
           </button>
         )
-      }
-    </>
-  )
+  );
 }
 
 export default Button;
+
+

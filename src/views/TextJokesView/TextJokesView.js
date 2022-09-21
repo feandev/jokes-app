@@ -1,15 +1,16 @@
-import React from "react";
-import AppContext from "../../context";
-import List from "../../components/List/List";
+import React from 'react';
+import AppContext from '../../context';
+import List from '../../components/List/List';
 
-const TextJokesView = () => (
+function TextJokesView() {
+  return (
+    <AppContext.Consumer>
 
-  <AppContext.Consumer>
-
-    {(context) => (
-      <List items={context.items.filter(joke => { return joke.type === 'text'})}/>
-    )}
-  </AppContext.Consumer>
-)
+      {(context) => (
+        <List items={context.items.filter((joke) => joke.type === 'text')} />
+      )}
+    </AppContext.Consumer>
+  );
+}
 
 export default TextJokesView;

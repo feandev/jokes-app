@@ -1,15 +1,16 @@
-import React from "react";
-import AppContext from "../../context";
-import List from "../../components/List/List";
+import React from 'react';
+import AppContext from '../../context';
+import List from '../../components/List/List';
 
-const ImageJokesView = () => (
+function ImageJokesView() {
+  return (
+    <AppContext.Consumer>
 
-  <AppContext.Consumer>
-
-    {(context) => (
-      <List items={context.items.filter(joke => { return joke.type === 'image'})}/>
-    )}
-  </AppContext.Consumer>
-)
+      {(context) => (
+        <List items={context.items.filter((joke) => joke.type === 'image')} />
+      )}
+    </AppContext.Consumer>
+  );
+}
 
 export default ImageJokesView;

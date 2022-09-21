@@ -1,17 +1,16 @@
-import React from "react";
-import AppContext from "../../context";
-import List from "../../components/List/List";
+import React from 'react';
+import AppContext from '../../context';
+import List from '../../components/List/List';
 
-const EnglishJokesView = () => (
+function EnglishJokesView() {
+  return (
+    <AppContext.Consumer>
 
-  <AppContext.Consumer>
-
-    {(context) => (
-      <List items={context.items.filter(joke => { return joke.lang === 'english'})}/>
-    )}
-  </AppContext.Consumer>
-
-  
-)
+      {(context) => (
+        <List items={context.items.filter((joke) => joke.lang === 'english')} />
+      )}
+    </AppContext.Consumer>
+  );
+}
 
 export default EnglishJokesView;

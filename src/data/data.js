@@ -1,4 +1,4 @@
-export const jokes = [
+const jokes = [
   {
     lang: 'english',
     type: 'image',
@@ -49,3 +49,5 @@ export const jokes = [
     source: 'https://twitter.com/'
   },
 ]
+
+export default jokes;
