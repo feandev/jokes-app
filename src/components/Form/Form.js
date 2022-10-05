@@ -31,15 +31,19 @@ class Form extends React.Component {
 
   // joke language and type selection
 
-  handleJokeLangaugeSelect = (lang) => { this.setState({ lang, formError: '' }); };
+  handleJokeLangaugeSelect = (lang) => {
+    this.setState({ lang, formError: '' });
+  };
 
-  handleJokeTypeSelect = (type) => { this.setState({ type, formError: '' }); };
-
-  // add joke content
+  handleJokeTypeSelect = (type) => {
+    this.setState({ type, formError: '' });
+  };
 
   handleInputChange = (e) => {
     const { value } = e.target;
-    this.state.type === jokeType.text
+    const { type } = this.state;
+
+    type === jokeType.text
       ? this.setState({ content: value }, () => this.validateJokeText(value))
       : this.setState({ url: value }, () => this.validateImageURL(value));
   };
@@ -50,14 +54,17 @@ class Form extends React.Component {
     let { jokeURLValid } = this.state;
     let { formError } = this.state;
 
-    const regex = new RegExp('(http(s?):)|([/|.|\w|\s])*\.(?:jpg|gif|png)');
+    const regex = new RegExp('(http(s?):)|([/|.|w|s])*.(?:jpg|gif|png)');
     jokeURLValid = regex.test(value);
     formError = jokeURLValid ? '' : 'Please add valid image URL';
 
-    this.setState({
-      formError,
-      jokeURLValid,
-    }, this.validateForm);
+    this.setState(
+      {
+        formError,
+        jokeURLValid,
+      },
+      this.validateForm,
+    );
   };
 
   // joke text validation
@@ -69,20 +76,27 @@ class Form extends React.Component {
     jokeTextValid = value.length > 1;
     formError = jokeTextValid ? '' : 'Please add joke contents';
 
-    this.setState({
-      formError,
-      jokeTextValid,
-    }, this.validateForm);
+    this.setState(
+      {
+        formError,
+        jokeTextValid,
+      },
+      this.validateForm,
+    );
   };
 
   // final form validation
 
-  validateForm = () => this.setState(prevState => ({ formValid: prevState.jokeURLValid || prevState.jokeTextValid }));
+  validateForm = () =>
+    this.setState((prevState) => ({
+      formValid: prevState.jokeURLValid || prevState.jokeTextValid,
+    }));
 
   render() {
     const { lang } = this.state;
     const { type } = this.state;
     const { formValid } = this.state;
+    const { formError } = this.state;
 
     return (
       <AppContext.Consumer>
@@ -132,7 +146,7 @@ class Form extends React.Component {
               onChange={this.handleInputChange}
               name="content"
             />
-            <FormError formError={this.state.formError} />
+            <FormError formError={formError} />
             <Button formValid={formValid} description="Add" />
           </form>
         )}

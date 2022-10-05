@@ -35,6 +35,8 @@ class App extends React.Component {
       closeForm: this.closeForm,
     };
 
+    const { formOpen } = this.state;
+
     return (
       <BrowserRouter>
         <AppContext.Provider value={contextData}>
@@ -46,7 +48,7 @@ class App extends React.Component {
             <Route path="/images" element={<ImageJokesView />} />
             <Route path="/text" element={<TextJokesView />} />
           </Routes>
-          {this.state.formOpen && <FormBox />}
+          {formOpen && <FormBox />}
         </AppContext.Provider>
       </BrowserRouter>
     );
