@@ -3,6 +3,13 @@ const jokes = [
     lang: 'english',
     type: 'image',
     content: '',
+    url: 'https://i.imgflip.com/6zycvh.jpg',
+    source: 'feandev via imgflip',
+  },
+  {
+    lang: 'english',
+    type: 'image',
+    content: '',
     url: 'https://cdn.hashnode.com/res/hashnode/image/upload/v1643690123481/IQRJ7FrR9.gif?auto=format,compress&gif-q=60&format=webm',
     source: 'Commitstrip',
   },

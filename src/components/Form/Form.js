@@ -36,7 +36,7 @@ class Form extends React.Component {
   };
 
   handleJokeTypeSelect = (type) => {
-    this.setState({ type, formError: '' });
+    this.setState({ type, formError: '', jokeTextValid: false, jokeURLValid: false });
   };
 
   handleInputChange = (e) => {
